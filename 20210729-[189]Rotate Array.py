@@ -110,8 +110,8 @@ class Solution(object):
 
 
 # leetcode submit region end(Prohibit modification and deletion)
-s1 = Solution()
-# n1 = [1, 2, 3, 4 , 5, 6, 7]
-n1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-s1.rotate(n1, 3)
-print(n1)
+# s1 = Solution()
+# # n1 = [1, 2, 3, 4 , 5, 6, 7]
+# n1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# s1.rotate(n1, 3)
+# print(n1)
