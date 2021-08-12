@@ -5,9 +5,7 @@ class Solution(object):
         index = 0
         cur = 0
         while index < len(nums):
-            if nums[index] == nums[cur]:
-                pass
-            else:
+            if nums[index] != nums[cur]:
                 cur += 1
                 nums[cur] = nums[index]
             index += 1
