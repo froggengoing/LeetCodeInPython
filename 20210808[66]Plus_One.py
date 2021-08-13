@@ -80,6 +80,7 @@ class Solution(object):
         """
         :type digits: List[int]
         :rtype: List[int]
+        题目是让返回数组，这里返回的是值，所以错了
         """
         res = 0
         for i in range(len(digits)):

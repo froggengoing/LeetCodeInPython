@@ -40,7 +40,20 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution(object):
+
     def maxProfit(self, prices):
+        '''
+        动态规划
+        求当前元素左边最小值与当前值之差
+        '''
+        left_min = [prices[0]]
+        max_value = 0
+        for i in range(1, len(prices)):
+            left_min.append(min(prices[i - 1], left_min[i - 1]))
+            max_value = max(prices[i] - left_min[i], max_value)
+        return max_value
+
+    def maxProfit2(self, prices):
         """
         :type prices: List[int]
         :rtype: int
@@ -60,3 +73,8 @@ class Solution(object):
 s1 = Solution()
 print(s1.maxProfit([7, 3, 5, 2, 1, 4]))
 print(s1.maxProfit([1, 7, 6, 4, 3, 1]))
+print(s1.maxProfit([7, 1, 5, 3, 6, 4]))
+
+print(s1.maxProfit2([7, 3, 5, 2, 1, 4]))
+print(s1.maxProfit2([1, 7, 6, 4, 3, 1]))
+print(s1.maxProfit2([7, 1, 5, 3, 6, 4]))
