@@ -45,6 +45,27 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution(object):
     def findUnsortedSubarray(self, nums):
+        '''
+        参考答案优化以下
+        :param nums:
+        :return:
+        '''
+        left_stack = []
+        right_stack = []
+        min_index = len(nums)
+        max_index = 0
+        for i in range(len(nums)):
+            while left_stack and nums[left_stack[-1]] > nums[i]:
+                min_index = min(left_stack.pop(), min_index)
+            left_stack.append(i)
+        for i in range(len(nums) - 1, -1, -1):
+            while right_stack and nums[right_stack[-1]] < nums[i]:
+                max_index = max(right_stack.pop(), max_index)
+            right_stack.append(i)
+        if max_index > min_index:
+            return max_index - min_index + 1
+        return 0
+    def findUnsortedSubarray2(self, nums):
         """
         :type nums: List[int]
         :rtype: int
