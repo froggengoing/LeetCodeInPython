@@ -54,6 +54,25 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution(object):
+    def nextGreaterElement3(self, nums1, nums2):
+        '''
+        评论给出的答案，没有使用map保存结果。时间复杂度不行
+        :param nums1:
+        :param nums2:
+        :return:
+        '''
+        result = [-1] * len(nums1)
+        stack = [0]
+        for i in range(1, len(nums2)):
+            while len(stack) != 0 and nums2[i] > nums2[stack[-1]]:
+                if nums2[stack[-1]] in nums1:
+                    # 时间复杂度为o(n)
+                    index = nums1.index(nums2[stack[-1]])
+                    result[index] = nums2[i]
+                stack.pop()
+            stack.append(i)
+        return result
+
     def nextGreaterElement(self, nums1, nums2):
         '''
         使用map保存nums[1]
@@ -67,7 +86,7 @@ class Solution(object):
         '''
         stack = []
         n2_dict = {}
-        res = []
+        res = [-1] * len(nums1)
         for i in range(len(nums2)):
             while stack and nums2[i] > nums2[stack[-1]]:
                 cur = stack.pop()
@@ -75,9 +94,7 @@ class Solution(object):
             stack.append(i)
         for i in range(len(nums1)):
             if nums1[i] in n2_dict:
-                res.append(n2_dict[nums1[i]])
-            else:
-                res.append(-1)
+                res[i] = n2_dict[nums1[i]]
         return res
 
     def nextGreaterElement1(self, nums1, nums2):
