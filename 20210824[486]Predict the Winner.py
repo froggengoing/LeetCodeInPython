@@ -94,7 +94,7 @@ class Solution(object):
         # res = [[None] * len(nums)] * len(nums)
         res = [[None for i in range(len(nums))] for j in range(len(nums))]
         score = self.dfs(nums, 0, len(nums) - 1, res)
-        # print(res)
+        print(res)
         return score >= 0
 
     def dfs(self, nums, i, j, res):
@@ -109,5 +109,5 @@ class Solution(object):
 
 # leetcode submit region end(Prohibit modification and deletion)
 # print(Solution().PredictTheWinner([1, 5, 9, 6]))
-print(Solution().PredictTheWinner([1, 5, 2, 4, 6]))
+print(Solution().PredictTheWinner([1, 5, 7, 11, 6]))
 # print(Solution().PredictTheWinner( [2,4,55,6,8] ))
